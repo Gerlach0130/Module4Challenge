@@ -24,8 +24,6 @@ var answer4 = document.querySelector(".answer4");
 var feedback = document.querySelector(".answerfeedback");
 var timerCount;
 var timer;
-var isWin = false;
-var wrongAnswer = false;
 var textform = document.querySelector(".textform");
 var submitbutton = document.querySelector(".submitbutton");
 
@@ -51,6 +49,7 @@ function startTimer() {
 }
 
 function question() {
+    highScores.disabled = true;
     questionElement.textContent = questions[0];
     answer1.textContent = answers0[0];
     answer2.textContent = answers0[1];
@@ -62,30 +61,55 @@ function question() {
     answer4.addEventListener("click", wrongAnswer1);
 }
 
-function loseGame() {
-    questionElement.textContent = "You did not finish the quiz in time. Press Begin above to try again.";
-    begin.disabled = false;
+function endGameW() {
     answer1.textContent = "A.";
     answer2.textContent = "B.";
     answer3.textContent = "C.";
     answer4.textContent = "D.";
-}
-
-function winGame() {
-    isWin = true;
     questionElement.textContent = "Your Score = " + timerCount + " Enter Initials:";
     clearInterval(timer);
     showSubmit();
     submitbutton.addEventListener("click", saveHs);
 }
 
+function endGame() {
+    answer1.textContent = "A.";
+    answer2.textContent = "B.";
+    answer3.textContent = "C.";
+    answer4.textContent = "D.";
+    questionElement.textContent = "Your Score = " + timerCount + " Enter Initials:";
+    clearInterval(timer);
+    showSubmit();
+    var initials = textform.value;
+    submitbutton.addEventListener("click", function() {
+        var initials = textform.value;
+        localStorage.setItem("Score", timerCount);
+        localStorage.setItem("Initials", initials);
+        finishGame();
+    });
+}
+
+highScores.addEventListener("click", showScores);
+
+function showScores() { 
+    var initials = localStorage.getItem("Initials");
+    var score = localStorage.getItem("Score");
+    questionElement.textContent = initials + " " + score;
+}
+
+function finishGame() {
+    questionElement.textContent = ""
+    begin.disabled = false;
+    highScores.disabled = false;
+    document.getElementById("hssubmit").style.visibility = "hidden";
+    timerElement.textContent = "Time: 60";
+}
+
 function showSubmit() {
     document.getElementById("hssubmit").style.visibility = "visible";
 }
 
-function saveHs() {
-    
-}
+
 
 function rightAnswer1() {
     feedback.textContent = "Correct!";
@@ -172,10 +196,10 @@ function rightAnswer4() {
     answer2.textContent = answers4[1];
     answer3.textContent = answers4[2];
     answer4.textContent = answers4[3];
-    answer1.addEventListener("click", winGame);
-    answer2.addEventListener("click", winGame);
-    answer3.addEventListener("click", winGame);
-    answer4.addEventListener("click", winGame);
+    answer1.addEventListener("click", endGame);
+    answer2.addEventListener("click", endGameW);
+    answer3.addEventListener("click", endGameW);
+    answer4.addEventListener("click", endGameW);
 }
 
 function wrongAnswer4() {
@@ -185,8 +209,8 @@ function wrongAnswer4() {
     answer2.textContent = answers4[1];
     answer3.textContent = answers4[2];
     answer4.textContent = answers4[3];
-    answer1.addEventListener("click", winGame);
-    answer2.addEventListener("click", winGame);
-    answer3.addEventListener("click", winGame);
-    answer4.addEventListener("click", winGame);
+    answer1.addEventListener("click", endGame);
+    answer2.addEventListener("click", endGameW);
+    answer3.addEventListener("click", endGameW);
+    answer4.addEventListener("click", endGameW);
 }
