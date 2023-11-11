@@ -1,0 +1,111 @@
+.root {
+    background-color: white;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.large {
+    font-size: 40px;
+    color: black;
+}
+
+header {
+  width: auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.begin {
+  font-size: 30px;
+  height: 40px;
+  line-height: 8px;
+  margin-top: 20px;
+}
+
+.questions {
+    text-align: center;
+    height: 50px;
+    font-size: 35px;
+    margin: 40px;
+    margin-left: 100px;
+    margin-right: 100px;
+    padding: 30px;
+}
+
+.hsandtime {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.highscores {
+    margin: 5px;
+    margin-left: 250px;
+    font-size: 40px;
+}
+
+.timer {
+    margin-right: 250px;
+    font-size: 40px;
+    color:crimson;
+}
+
+.answers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.answer1 {
+    margin: 10px;
+    font-size: 35px;
+    padding: 30px;
+    width: 500px;
+    text-align: left;
+}
+
+.answer2 {
+    margin: 10px;
+    font-size: 35px;
+    padding: 30px;
+    width: 500px;
+    text-align: left;
+}
+
+.answer3 {
+    margin: 10px;
+    font-size: 35px;
+    padding: 30px;
+    width: 500px;
+    text-align: left;
+}
+
+.answer4 {
+    margin: 10px;
+    font-size: 35px;
+    padding: 30px;
+    width: 500px;
+    text-align: left;
+}
+
+button {
+    background-color:aqua;
+}
+
+button:hover {
+    background-color: white;
+    cursor: pointer;
+}
+
+button:active {
+    background-color: aqua;
+}
+
+.answerfeedback {
+    text-align: center;
+    margin: 10px;
+    font-size: 30px;
+    color: gray;
+}
