@@ -17,14 +17,17 @@ var answers3 = ["Declared", "Tagged", "Clicked on", "Coded"];
 var correctAnswer3 = ["Declared"];
 var answers4 = ["Quotes", "Curly Brackets", "Parenthesis", "Square Brackets"];
 var correctAnswer4 = ["Quotes"];
-var answer1 = document.querySelector(".answer1")
-var answer2 = document.querySelector(".answer2")
-var answer3 = document.querySelector(".answer3")
-var answer4 = document.querySelector(".answer4")
-var feedback = document.querySelector(".answerfeedback")
+var answer1 = document.querySelector(".answer1");
+var answer2 = document.querySelector(".answer2");
+var answer3 = document.querySelector(".answer3");
+var answer4 = document.querySelector(".answer4");
+var feedback = document.querySelector(".answerfeedback");
 var timerCount;
 var timer;
 var isWin = false;
+var wrongAnswer = false;
+var textform = document.querySelector(".textform");
+var submitbutton = document.querySelector(".submitbutton");
 
 function beginQuiz() {
     begin.disabled = true
@@ -40,13 +43,8 @@ function startTimer() {
     timer = setInterval(function() {
         timerCount--;
         timerElement.textContent = "Time: " + timerCount;
-        if (timerCount >= 0) {
-            if (isWin && timerCount > 0) {
-              clearInterval(timerCount);
-            }
-          }
           if (timerCount === 0) {
-              clearInterval(timerCount);
+              clearInterval(timer);
               loseGame();
           }
 }, 1000);
@@ -77,6 +75,16 @@ function winGame() {
     isWin = true;
     questionElement.textContent = "Your Score = " + timerCount + " Enter Initials:";
     clearInterval(timer);
+    showSubmit();
+    submitbutton.addEventListener("click", saveHs);
+}
+
+function showSubmit() {
+    document.getElementById("hssubmit").style.visibility = "visible";
+}
+
+function saveHs() {
+    
 }
 
 function rightAnswer1() {
