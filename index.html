@@ -11,7 +11,7 @@
 <body class="root">
     <header>
         <div class="large">Javascript Quiz</div>
-        <button class="begin">Begin</button>
+        <button class="begin" onclick="removeHandler()">Begin</button>
     </header>
 
     <section class="hsandtime">
@@ -24,15 +24,15 @@
     </section>
     <section id="hssubmit">
         <input type="text" class="textform">
-        <input type="submit" class="submitbutton"></input>
+        <input type="submit" onclick="submitForm()" class="submitbutton"></input>
     </input>
     </section>
 
     <section class="answers">
-        <button class="answer1">A.</button>
-        <button class="answer2">B.</button>
-        <button class="answer3">C.</button>
-        <button class="answer4">D.</button>
+        <button id="answer1">A.</button>
+        <button id="answer2">B.</button>
+        <button id="answer3">C.</button>
+        <button id="answer4">D.</button>
     </section>
 
     <section>

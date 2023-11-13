@@ -57,7 +57,7 @@ header {
     align-items: center;
 }
 
-.answer1 {
+#answer1 {
     margin: 10px;
     font-size: 35px;
     padding: 30px;
@@ -65,7 +65,7 @@ header {
     text-align: left;
 }
 
-.answer2 {
+#answer2 {
     margin: 10px;
     font-size: 35px;
     padding: 30px;
@@ -73,7 +73,7 @@ header {
     text-align: left;
 }
 
-.answer3 {
+#answer3 {
     margin: 10px;
     font-size: 35px;
     padding: 30px;
@@ -81,7 +81,7 @@ header {
     text-align: left;
 }
 
-.answer4 {
+#answer4 {
     margin: 10px;
     font-size: 35px;
     padding: 30px;
