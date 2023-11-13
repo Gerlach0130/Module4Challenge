@@ -64,7 +64,8 @@ highScores.addEventListener("click", showScores);
 function showScores() { 
     var initials = localStorage.getItem("Initials");
     var score = localStorage.getItem("Score");
-    questionElement.textContent = initials + " " + score;
+    initials.toUpperCase();
+    questionElement.textContent = initials.toUpperCase() + " " + score;
 }
 
 function finishGame() {
@@ -312,9 +313,11 @@ function endGameW() {
     clearInterval(timer);
     document.getElementById("hssubmit").style.visibility = "visible";
     var initials = textform.value;
+    initials.toUpperCase();
     submitbutton.addEventListener("click", function() {
         feedback.textContent = "";
         var initials = textform.value;
+        initials.toUpperCase();
         localStorage.setItem("Score", timerCount);
         localStorage.setItem("Initials", initials);
         finishGame();
